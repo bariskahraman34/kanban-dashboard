@@ -9,8 +9,8 @@ import { Divider } from '@mui/material';
 
 export default function ButtonAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{background:"#fff", color:"rgba(0, 1, 18, 1)"}}>
+    <Box sx={{ flexGrow: 1, minHeight:"64px" }}>
+      <AppBar position="fixed" sx={{background:"#fff", color:"rgba(0, 1, 18, 1)"}}>
         <Toolbar>
           <div className="image-container">
             <img src="../../public/kanban_image.svg" alt="" />
