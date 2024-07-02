@@ -9,13 +9,13 @@ export default function Column() {
       <Typography variant='body2' sx={{letterSpacing:".2rem", marginBottom:"24px"}}>TODO (0)</Typography>
       <Box>
         <Grid container spacing={2}>
-          <Grid item spacing={3}>
+          <Grid item>
             <CardComponent/>
           </Grid>
-          <Grid item spacing={3}>
+          <Grid item >
             <CardComponent/>
           </Grid>
-          <Grid item spacing={3}>
+          <Grid item>
             <CardComponent/>
           </Grid>
         </Grid>
