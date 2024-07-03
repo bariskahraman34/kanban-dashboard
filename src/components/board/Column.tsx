@@ -3,23 +3,21 @@ import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
 import CardComponent from './Card';
 
-export default function Column() {
+export default function Column({tasks,column}) {
   return (
     <Container sx={{padding:"0px !important"}}>
-      <Typography variant='body2' sx={{letterSpacing:".2rem", marginBottom:"24px"}}>TODO (0)</Typography>
+      <Typography variant='body2' sx={{letterSpacing:".2rem", marginBottom:"24px",textTransform:"uppercase"}}>{column.column_name} ({tasks.length})</Typography>
       <Box>
         <Grid container spacing={2}>
-          <Grid item>
-            <CardComponent/>
-          </Grid>
-          <Grid item >
-            <CardComponent/>
-          </Grid>
-          <Grid item>
-            <CardComponent/>
-          </Grid>
+          {
+            tasks.map((task,index) => (
+              <Grid key={index} item>
+                <CardComponent task={task} />
+              </Grid>
+            ))
+          }
         </Grid>
       </Box>
     </Container>
-  );
+  )
 }
