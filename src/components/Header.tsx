@@ -2,10 +2,10 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Divider } from '@mui/material';
+import AddNewButton from "./buttons/AddNewButton"
 
 export default function ButtonAppBar() {
   return (
@@ -19,18 +19,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" fontWeight="bold" component="div" sx={{ flexGrow: 1 }}>
             Platform Launch
           </Typography>
-          <Button 
-          variant='contained'
-          sx={{
-            textTransform:"none",
-            fontWeight:"700",
-            backgroundColor: "rgba(99, 95, 199, 1)",
-            borderRadius: "20px",
-            '&:hover': {
-              backgroundColor: "rgba(168, 164, 255, 1)"
-            }
-          }}
-          >+Add New Task</Button>
+          <AddNewButton text={"+Add New Task"}  />
           <IconButton
             size="large"
             aria-label="display more actions"
