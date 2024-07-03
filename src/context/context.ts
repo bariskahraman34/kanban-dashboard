@@ -1,6 +1,11 @@
 import { createContext, useContext } from "react";
+import { ColumnType } from "../types/dataTypes";
 
-export const AppContext = createContext<undefined>(undefined);
+type AppContextProps = {
+  columns: ColumnType[];
+}
+
+export const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 const useAppContext = () => {
   const context = useContext(AppContext)

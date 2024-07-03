@@ -1,10 +1,15 @@
 import { AppContext } from "./context";
 import supabase from "../utils/supabase";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactNode } from "react";
+import { ColumnType } from "../types/dataTypes";
 
-export const AppContextProvider = ({children}) => {
+type AppContextProviderProps = {
+  children: ReactNode;
+}
 
-  const [columns , setColumns] = useState([]);
+export const AppContextProvider : React.FC<AppContextProviderProps> = ({children}) => {
+
+  const [columns , setColumns] = useState<ColumnType[]>([]);
 
   useEffect(() => {
     async function getData() {

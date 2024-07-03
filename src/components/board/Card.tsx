@@ -1,8 +1,14 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { TaskType } from '../../types/dataTypes';
+import React from 'react';
 
-export default function CardComponent({task}) {
+type CardTypes = {
+  task:TaskType
+}
+
+const CardComponent:React.FC<CardTypes> = ({task}) => {
   const completedSubtasks = task.subtasks.filter(st => st.status);
   
   return (
@@ -18,3 +24,5 @@ export default function CardComponent({task}) {
     </Card>
   );
 }
+
+export default CardComponent
