@@ -11,6 +11,7 @@ export type TaskType = {
 }
 
 export type ColumnType = {
+  status_color: string;
   id:number;
   column_name: string;
   tasks: TaskType[];

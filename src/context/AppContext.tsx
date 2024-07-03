@@ -15,7 +15,7 @@ export const AppContextProvider : React.FC<AppContextProviderProps> = ({children
   useEffect(() => {
     setIsLoading(true);
     async function getData() {
-      const {data:column , error:columnError} = await supabase.from('columns').select(`id,column_name,tasks(column_id,title,description,subtasks(subtask,status))`);
+      const {data:column , error:columnError} = await supabase.from('columns').select(`id,column_name,status_color,tasks(column_id,title,description,subtasks(subtask,status))`);
       if(!columnError){
         setColumns(column);
       }
