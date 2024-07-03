@@ -3,6 +3,7 @@ import { ColumnType } from "../types/dataTypes";
 
 type AppContextProps = {
   columns: ColumnType[];
+  isLoading:boolean;
 }
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
