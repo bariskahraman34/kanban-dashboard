@@ -18,7 +18,7 @@ const CardComponent:React.FC<CardTypes> = ({task}) => {
           {task.title}
         </Typography>
         <Typography color="text.secondary">
-          {`${completedSubtasks.length} of ${task.subtasks.length}`}
+          {`${completedSubtasks.length} of ${task.subtasks.length} subtasks`}
         </Typography>
       </CardContent>
     </Card>
