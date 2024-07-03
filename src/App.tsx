@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <Header isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <Header setDialogType={setDialogType} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       {isLoading ? 
       (
         <Container
@@ -40,7 +40,7 @@ function App() {
           {columns.map((col, index) => (
             <Column key={index} column={col} tasks={col.tasks} />
           ))}
-          <NewColumn setIsModalOpen={setIsModalOpen} />
+          <NewColumn setDialogType={setDialogType} setIsModalOpen={setIsModalOpen} />
         </Container>
       ) 
       : 
@@ -59,10 +59,10 @@ function App() {
           }}
         >
           <Typography>This board is empty. Create a new column to get started.</Typography>
-          <AddNewButton isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text="+Add New Column" />
+          <AddNewButton type='column' isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text="+Add New Column" />
         </Container>
       )}
-      <FormDialog type={dialogType} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <FormDialog dialogType={dialogType} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
   );
 }

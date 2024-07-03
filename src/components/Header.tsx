@@ -10,9 +10,10 @@ import AddNewButton from "./buttons/AddNewButton"
 type ButtonAppBarProps = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isModalOpen: boolean;
+  setDialogType: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ButtonAppBar: React.FC<ButtonAppBarProps> = ({ setIsModalOpen, isModalOpen }) => {
+const ButtonAppBar: React.FC<ButtonAppBarProps> = ({ setDialogType,setIsModalOpen, isModalOpen }) => {
   return (
     <Box sx={{ flexGrow: 1, minHeight:"64px" }}>
       <AppBar position="fixed" sx={{background:"#fff", color:"rgba(0, 1, 18, 1)"}}>
@@ -24,7 +25,7 @@ const ButtonAppBar: React.FC<ButtonAppBarProps> = ({ setIsModalOpen, isModalOpen
           <Typography variant="h6" fontWeight="bold" component="div" sx={{ flexGrow: 1 }}>
             Platform Launch
           </Typography>
-          <AddNewButton isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text={"+Add New Task"}  />
+          <AddNewButton type={"task"} setDialogType={setDialogType} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text={"+Add New Task"}  />
           <IconButton
             size="large"
             aria-label="display more actions"

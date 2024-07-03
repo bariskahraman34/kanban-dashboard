@@ -2,13 +2,17 @@ import { Button, Typography } from "@mui/material";
 
 type AddColumnProps = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setDialogType: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const AddColumn: React.FC<AddColumnProps> = ({ setIsModalOpen }) => {
+const AddColumn: React.FC<AddColumnProps> = ({ setDialogType,setIsModalOpen }) => {
   return (
     <>
       <Button 
-      onClick={() => setIsModalOpen(true)}
+      onClick={() => {
+        setIsModalOpen(true);
+        setDialogType("column");
+      }}
       sx={{
         backgroundColor: "rgba(233, 239, 250, 0.5)",
         padding:"55px",
