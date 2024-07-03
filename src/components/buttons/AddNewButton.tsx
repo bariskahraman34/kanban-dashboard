@@ -2,11 +2,15 @@ import { Button } from "@mui/material"
 
 type AddNewButtonProps = {
   text:string;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isModalOpen?: boolean;
 }
 
-const AddNewButton: React.FC<AddNewButtonProps> = ({text}) => {
+const AddNewButton: React.FC<AddNewButtonProps> = ({text,setIsModalOpen,isModalOpen}) => {
   return(
-    <Button 
+    <Button
+    onClick={() => setIsModalOpen(!isModalOpen)}
+    type="submit"
     variant='contained'
     sx={{
       textTransform:"none",

@@ -7,19 +7,24 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { Divider } from '@mui/material';
 import AddNewButton from "./buttons/AddNewButton"
 
-export default function ButtonAppBar() {
+type ButtonAppBarProps = {
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isModalOpen: boolean;
+}
+
+const ButtonAppBar: React.FC<ButtonAppBarProps> = ({ setIsModalOpen, isModalOpen }) => {
   return (
     <Box sx={{ flexGrow: 1, minHeight:"64px" }}>
       <AppBar position="fixed" sx={{background:"#fff", color:"rgba(0, 1, 18, 1)"}}>
         <Toolbar>
           <div className="image-container">
-            <img src="../../public/kanban_image.svg" alt="" />
+            <img src="/kanban_image.svg" alt="" />
           </div>
           <Divider orientation="vertical" flexItem sx={{marginInline:"30px"}} />
           <Typography variant="h6" fontWeight="bold" component="div" sx={{ flexGrow: 1 }}>
             Platform Launch
           </Typography>
-          <AddNewButton text={"+Add New Task"}  />
+          <AddNewButton isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text={"+Add New Task"}  />
           <IconButton
             size="large"
             aria-label="display more actions"
@@ -33,3 +38,5 @@ export default function ButtonAppBar() {
     </Box>
   );
 }
+
+export default ButtonAppBar;

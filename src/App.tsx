@@ -2,15 +2,19 @@ import { Container, Typography, CircularProgress } from '@mui/material';
 import Header from './components/Header';
 import useAppContext from './context/context';
 import Column from './components/board/Column';
-import NewColumn from './components/board/NewColumn';
+import NewColumn from './components/buttons/NewColumn';
 import AddNewButton from './components/buttons/AddNewButton';
+import FormDialog from './components/dialogs/FormDialog';
+import { useState } from 'react';
 
 function App() {
   const { columns, isLoading } = useAppContext();
+  const [isModalOpen , setIsModalOpen] = useState(false);
+  const [dialogType, setDialogType] = useState('');
 
   return (
     <>
-      <Header />
+      <Header isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       {isLoading ? 
       (
         <Container
@@ -36,7 +40,7 @@ function App() {
           {columns.map((col, index) => (
             <Column key={index} column={col} tasks={col.tasks} />
           ))}
-          <NewColumn />
+          <NewColumn setIsModalOpen={setIsModalOpen} />
         </Container>
       ) 
       : 
@@ -55,9 +59,10 @@ function App() {
           }}
         >
           <Typography>This board is empty. Create a new column to get started.</Typography>
-          <AddNewButton text="+Add New Column" />
+          <AddNewButton isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text="+Add New Column" />
         </Container>
       )}
+      <FormDialog type={dialogType} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
   );
 }
