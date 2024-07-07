@@ -196,7 +196,7 @@ const FormDialog: React.FC<FormDialogProps> = ({ dialogType, isModalOpen, setIsM
             </FormControl>
           </DialogContent>
           <DialogActions sx={{display:"flex",flexDirection:"column"}}>
-            <AddNewButton setIsModalOpen={setIsModalOpen} text={"Create Task"}/>
+            <AddNewButton typeOfDialog='' setIsModalOpen={setIsModalOpen} text={"Create Task"}/>
             <Button onClick={handleClose}>Cancel</Button>
           </DialogActions>
         </Dialog>
