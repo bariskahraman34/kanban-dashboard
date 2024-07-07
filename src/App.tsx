@@ -59,7 +59,7 @@ function App() {
           }}
         >
           <Typography>This board is empty. Create a new column to get started.</Typography>
-          <AddNewButton type='column' isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text="+Add New Column" />
+          <AddNewButton typeOfDialog='column' isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text="+Add New Column" setDialogType={setDialogType} />
         </Container>
       )}
       <FormDialog dialogType={dialogType} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />

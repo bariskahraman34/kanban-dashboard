@@ -4,11 +4,11 @@ type AddNewButtonProps = {
   text:string;
   setIsModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   isModalOpen?: boolean;
-  type:string;
+  typeOfDialog:string;
   setDialogType?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const AddNewButton: React.FC<AddNewButtonProps> = ({text,type,setIsModalOpen,isModalOpen,setDialogType}) => {
+const AddNewButton: React.FC<AddNewButtonProps> = ({text,typeOfDialog,setIsModalOpen,isModalOpen,setDialogType}) => {
   return(
     <Button
     onClick={() => {
@@ -16,7 +16,7 @@ const AddNewButton: React.FC<AddNewButtonProps> = ({text,type,setIsModalOpen,isM
         setIsModalOpen(!isModalOpen);
       }
       if(setDialogType){
-        setDialogType(type)
+        setDialogType(typeOfDialog)
       }
     }}
     type="submit"
