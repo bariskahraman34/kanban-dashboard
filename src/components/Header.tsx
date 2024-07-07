@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Divider } from '@mui/material';
 import AddNewButton from "./buttons/AddNewButton"
+import useAppContext from '../context/context';
 
 type ButtonAppBarProps = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,6 +15,7 @@ type ButtonAppBarProps = {
 }
 
 const ButtonAppBar: React.FC<ButtonAppBarProps> = ({ setDialogType,setIsModalOpen, isModalOpen }) => {
+  const { columns } = useAppContext();
   return (
     <Box sx={{ flexGrow: 1, minHeight:"64px" }}>
       <AppBar position="fixed" sx={{background:"#fff", color:"rgba(0, 1, 18, 1)"}}>
@@ -25,7 +27,8 @@ const ButtonAppBar: React.FC<ButtonAppBarProps> = ({ setDialogType,setIsModalOpe
           <Typography variant="h6" fontWeight="bold" component="div" sx={{ flexGrow: 1 }}>
             Platform Launch
           </Typography>
-          <AddNewButton type={"task"} setDialogType={setDialogType} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text={"+Add New Task"}  />
+          {columns.length > 0 && <AddNewButton typeOfDialog={"task"} setDialogType={setDialogType} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} text={"+Add New Task"}  />}
+          
           <IconButton
             size="large"
             aria-label="display more actions"
